@@ -24,6 +24,10 @@ h1 {
 	align:left;
 }
 
+#poll_form label{
+	cursor:pointer;
+}
+
 
 #bouton-actualiser{
 	margin: 20px auto 20px auto;
