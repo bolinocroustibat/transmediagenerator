@@ -1,75 +1,103 @@
 body{
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto',sans-serif;
+	color:#222;
 	-webkit-font-smoothing: antialiased;
 	text-align: center;
-	margin-top: 20px;
+	 /* background-color:#c9dae5; */
+	background:url('background-1920x1080-opacite.jpg') no-repeat;
+}
+
+#main-wrapper{
 	max-width:980px;
-	margin:50px auto 0 auto;
+	margin:40px auto 0 auto;
 }
 
 h2 {
-	color:#999;
-	font-style: italic;
-	font-size:14px;
+	font-size:1em;
 	margin: 0px;
+	font-weight:normal;
+	font-style: italic;
+	color:#e7ef00;
 }
 
 h1 {
-	color:#999;
-	font-size:24px;
-	margin: 0 0 50px 0;
+	font-family: 'Codystar', cursive;
+	font-size:3.6em;
+	font-weight:bold;
+	color:#e7ef00;
+	margin: 0 0 40px 0;
 }
 
 #poll_form {
-	align:left;
+	width:450px;
+	margin: 0 auto 0 auto;
+	text-align:left;
 }
 
 #poll_form label{
 	cursor:pointer;
 }
 
+#poll_form input{
+	cursor:pointer;
+}
 
 #bouton-actualiser{
-	margin: 20px auto 20px auto;
+	font-weight:normal;
+	margin: 10px auto 40px auto;
 	text-align:center;
 }
 
 #bouton-actualiser input{
-	width:350px;
-	height:50px;
-	color:black;
+	width:330px;
+	height:40px;
 	cursor:pointer;
 	font-size: 1.1em;
 }
 
 #projet-wrapper{
+	font-family: "OFL Sorts Mill Goudy TT",Georgia,serif;
 	display: block;
     position: relative;
 	padding:15px;
-	background: #EEE;
-	font-family: "OFL Sorts Mill Goudy TT",Georgia,serif;
-	color: #888;
-	font-size: 22px;
+	background: #c9dae5;
+	color: #777;
+	font-size: 1.4em;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+	margin: 0 15px 0 15px;
 }
 
+/*
 #projet:before{
     content: "";
     position: absolute;
 	top:0px;
     right: 0px;
-    border-color: #FFF #FFF #CCC #FFF;
+    border-color: #c9dae5 #c9dae5 #CCC #c9dae5;
     border-style: solid;
     border-width: 0px 15px 15px 0px;
     height: 0px;
     width: 0px;
     display: block;
 }
+*/
 
 #projet{
 	font-family: 'Roboto', sans-serif;
-	color:black;
+	color:#000;
 }
 
+#share{
+	margin-top:15px;
+	font-size:13px;
+}
+
+#share a{
+	color:#222;
+}
+
+#share a:hover{
+	color:#000;
+}
