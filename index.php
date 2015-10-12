@@ -20,7 +20,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 
 	<meta charset="UTF-8" />
 
-	<title>DEV - The Amazing Transmedia Project Generator</title>
+	<title>The Amazing Transmedia Project Generator</title>
 	
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
@@ -30,7 +30,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<meta name="Keywords" content="transmedia, transmédia, générateur, generator, generateur, crossmedia" />
 
 	<meta property="og:title" content="<?php if(isset($sentence) && $sentence!=''){echo 'J\'ai généré mon projet transmédia :';}else{echo 'The Amazing Transmedia Project Generator';} ?>" />
-	<meta property="og:image" content="style/partage-1200x1200.jpg" />
+	<meta property="og:image" content="style/transmedia_FB_1200x1200.jpg" />
 	<meta property="og:url" content="http://www.transmediagenerator.com/<?php if(isset($hash) && $hash!=''){echo $hash;}?>.html" />
 	<meta property="og:site_name" content="The Amazing Transmedia Project Generator" />
 	<meta property="og:description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'Plus aucune chance de voir le financement de son projet refusé, grâce au générateur de projet transmédia !';} ?>" />
@@ -62,8 +62,8 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<script>
 
 		function generate_data() { // si le bouton de génération a été cliqué
-			$("#projet-wrapper").hide("fold", function() {
-				$("#projet-wrapper").css("visibility", "visible");
+			$("#share").css("visibility", "hidden");
+			$("#projet-wrapper").hide("blind", function() {
 				$.ajax({
 						type: "POST",		
 						url: 'ajax_generate.php',
@@ -75,15 +75,16 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 							$("#projet").html(sentence);
 							history.pushState(sentence, sentence, hash+'.html'); // change l'URL dynamiquement
 							if ((typeof sentence !== 'undefined') && (typeof hash !== 'undefined')) { // si les variables existent
-								document.getElementById('ShareTwitter').href = 'http://twitter.com/?status='+sentence; // met à jour le lien de partage Twitter
+								document.getElementById('ShareTwitter').href = 'http://twitter.com/?status='+sentence+' via @TransmediaGen'; // met à jour le lien de partage Twitter
 								document.getElementById('ShareFacebook').href = 'http://www.facebook.com/sharer/sharer.php?u=http://www.transmediagenerator.com/'+hash+'.html'; // met à jour le lien de partage Facebook		
 							}
 						}
 				})
+				$("#projet-wrapper").css("visibility", "visible");
 			});
-			$("#projet-wrapper").show("fold",300);
-			$("#share").css("visibility", "visible");
-			$("#share").show("fold",300);
+			$("#projet-wrapper").show("blind", function() {
+				$("#share").css("visibility", "visible");
+			});
 		}
 
 		function read_data(sentence) {
@@ -97,6 +98,16 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 
 <body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?>>
 
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-68594064-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	
 	<div id="main-wrapper">
 
 		<!-- <h2>Plus aucune chance de voir le financement de son projet refusé, grâce à...</h2> -->
@@ -115,7 +126,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 		<div id="share" style="visibility:hidden;">
 			Partager ce projet 
 			<a href="http://www.facebook.com/sharer/sharer.php<?php if(isset($hash) && $hash!=''){echo '?u=http://www.transmediagenerator.com/'.$hash.'.html';}?>" id="ShareFacebook">sur Facebook</a> - 
-			<a href="http://twitter.com/?status=<?php if(isset($sentence) && $sentence!=''){echo $sentence;}?>" id="ShareTwitter">sur Twitter</a>
+			<a href="http://twitter.com/?status=<?php if(isset($sentence) && $sentence!=''){echo $sentence.' via @TransmediaGen';}?>" id="ShareTwitter">sur Twitter</a>
 		</div>
 	
 	</div>

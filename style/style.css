@@ -4,7 +4,8 @@ body{
 	-webkit-font-smoothing: antialiased;
 	text-align: center;
 	 /* background-color:#c9dae5; */
-	background:url('background-1920x1080-opacite.jpg') no-repeat;
+	background:url('background-1920x1080-opacite.jpg') no-repeat center center fixed; 
+	background-size: cover;
 }
 
 #main-wrapper{
@@ -66,7 +67,14 @@ h1 {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	margin: 0 15px 0 15px;
+	margin: 0 15px 15px 15px;
+}
+
+#projet-wrapper a{
+	text-decoration:none;
+}
+#projet-wrapper a:hover{
+	text-decoration:underline;
 }
 
 /*
@@ -90,7 +98,6 @@ h1 {
 }
 
 #share{
-	margin-top:15px;
 	font-size:13px;
 }
 
