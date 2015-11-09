@@ -32,6 +32,7 @@ h1 {
 #poll_form {
 	width:450px;
 	margin: 0 auto 0 auto;
+	line-height:130%;
 	text-align:left;
 }
 
@@ -43,20 +44,20 @@ h1 {
 	cursor:pointer;
 }
 
-#bouton-actualiser{
+#generate-button{
 	font-weight:normal;
 	margin: 10px auto 40px auto;
 	text-align:center;
 }
 
-#bouton-actualiser input{
+#generate-button input{
 	width:330px;
 	height:40px;
 	cursor:pointer;
 	font-size: 1.1em;
 }
 
-#projet-wrapper{
+.project-wrapper{
 	font-family: "OFL Sorts Mill Goudy TT",Georgia,serif;
 	display: block;
     position: relative;
@@ -70,15 +71,15 @@ h1 {
 	margin: 0 15px 15px 15px;
 }
 
-#projet-wrapper a{
+.project-wrapper a{
 	text-decoration:none;
 }
-#projet-wrapper a:hover{
+.project-wrapper a:hover{
 	text-decoration:underline;
 }
 
-/*
-#projet:before{
+/* Pour avoir l'effet coin plié 
+#project:before{
     content: "";
     position: absolute;
 	top:0px;
@@ -92,19 +93,28 @@ h1 {
 }
 */
 
-#projet{
+.project{
 	font-family: 'Roboto', sans-serif;
 	color:#000;
 }
 
-#share{
+#share-wrapper{
 	font-size:13px;
 }
 
-#share a{
+#share-wrapper a{
 	color:#222;
 }
 
-#share a:hover{
+#share-wrapper a:hover{
 	color:#000;
+}
+
+#list-link {
+	font-size:0.6em;
+	color:#86a2ca;
+	text-align:center;
+	position:fixed; 
+	top: 95%; 
+	left:80%;
 }

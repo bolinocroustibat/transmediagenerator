@@ -235,7 +235,9 @@
 	$tempArray = json_decode($inp);
 	array_push($tempArray, $data);
 	$jsonData = json_encode($tempArray);
-	file_put_contents('generated_projects.json', $jsonData);
+	if(isset($jsonData) && $jsonData!=''){
+		file_put_contents('generated_projects.json', $jsonData, LOCK_EX);
+	}
 	
 	// file_put_contents('generated_projects.json',$data,FILE_APPEND | LOCK_EX); // FILE_APPEND pour ajouter à la suite sans écraser ce qu'il y avait avant
 	

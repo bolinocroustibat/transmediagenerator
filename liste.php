@@ -66,14 +66,14 @@
 		<ul>
 			<?php		
 			$generated_projects_json = file_get_contents("generated_projects.json"); //charge le fichier qui contient l'objet JSON
-			$generated_projects_table = json_decode($generated_projects_json,true); // transforme l'objet JSON en tableau PHP
+			$generated_projects_table = array_reverse(json_decode($generated_projects_json,true)); // transforme l'objet JSON en tableau PHP, qu'on met à l'envers (chronologique)
 			$total_nb = count($generated_projects_table); //nb d'entrées dans le tableau
 			$nb=0;
 			foreach ($generated_projects_table as $row_obj) { // parcourt chaque ligne du tableau PHP
 				$row = json_decode($row_obj,true); // tranforme l'objet-ligne en tableau
 				$hash = $row["hash"];
 				$sentence = $row["sentence"];
-				echo ($total_nb-$nb).'<li id="projet-wrapper">“ <a id="projet" href="'.$hash.'.html"/>'.$sentence.'</a> ”</li>';
+				echo ($total_nb-$nb).'<sup>e</sup> projet transmédia créé :<li class="project-wrapper">“ <a class="project" href="'.$hash.'.html">'.$sentence.'</a> ”</li>';
 				$nb++;
 			}
 			?>

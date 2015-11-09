@@ -28,13 +28,15 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<meta name="Description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'Plus aucune chance de voir le financement de son projet refusé, grâce au générateur de projet transmédia !';} ?>" />
 	<meta name="Generator" content="Notepad++" />
 	<meta name="Keywords" content="transmedia, transmédia, générateur, generator, generateur, crossmedia" />
-
-	<meta property="og:title" content="<?php if(isset($sentence) && $sentence!=''){echo 'J\'ai généré mon projet transmédia :';}else{echo 'The Amazing Transmedia Project Generator';} ?>" />
-	<meta property="og:image" content="style/transmedia_FB_1200x1200.jpg" />
-	<meta property="og:url" content="http://www.transmediagenerator.com/<?php if(isset($hash) && $hash!=''){echo $hash;}?>.html" />
-	<meta property="og:site_name" content="The Amazing Transmedia Project Generator" />
-	<meta property="og:description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'Plus aucune chance de voir le financement de son projet refusé, grâce au générateur de projet transmédia !';} ?>" />
 	
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:site_name" content="The Amazing Transmedia Project Generator" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://www.transmediagenerator.com/<?php if(isset($hash) && $hash!=''){echo $hash.'.html';}?>" />
+	<meta property="og:title" content="<?php if(isset($sentence) && $sentence!=''){echo 'J\'ai généré mon projet transmédia :';}else{echo 'The Amazing Transmedia Project Generator';} ?>" />
+	<meta property="og:description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'Plus aucune chance de voir le financement de son projet refusé, grâce au générateur de projet transmédia !';} ?>" />
+	<meta property="og:image" content="style/transmedia_FB_1200x1200.jpg" />
+
 	<link rel="apple-touch-icon" sizes="57x57" href="style/favicons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="style/favicons/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="style/favicons/apple-icon-72x72.png">
@@ -60,37 +62,35 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	
 	<script>
-
 		function generate_data() { // si le bouton de génération a été cliqué
-			$("#share").css("visibility", "hidden");
-			$("#projet-wrapper").hide("blind", function() {
+			$("#share-wrapper").css("visibility", "hidden");
+			$(".project-wrapper").hide("blind", function() {
 				$.ajax({
-						type: "POST",		
-						url: 'ajax_generate.php',
-						data: $('#poll_form').serialize(),
-						success: function (data) {
-							var dataObj = jQuery.parseJSON(data);
-							sentence = dataObj.sentence;
-							hash = dataObj.hash;
-							$("#projet").html(sentence);
-							history.pushState(sentence, sentence, hash+'.html'); // change l'URL dynamiquement
-							if ((typeof sentence !== 'undefined') && (typeof hash !== 'undefined')) { // si les variables existent
-								document.getElementById('ShareTwitter').href = 'http://twitter.com/?status='+sentence+' via @TransmediaGen'; // met à jour le lien de partage Twitter
-								document.getElementById('ShareFacebook').href = 'http://www.facebook.com/sharer/sharer.php?u=http://www.transmediagenerator.com/'+hash+'.html'; // met à jour le lien de partage Facebook		
-							}
+					type: "POST",		
+					url: 'ajax_generate.php',
+					data: $('#poll_form').serialize(),
+					success: function (data) {
+						var dataObj = jQuery.parseJSON(data);
+						sentence = dataObj.sentence;
+						hash = dataObj.hash;
+						$(".project").html(sentence);
+						history.pushState(sentence, sentence, hash+'.html'); // change l'URL dynamiquement
+						if ((typeof sentence !== 'undefined') && (typeof hash !== 'undefined')) { // si les variables existent
+							document.getElementById('ShareTwitter').href = 'http://twitter.com/?status='+sentence+' via @TransmediaGen'; // met à jour le lien de partage Twitter
+							document.getElementById('ShareFacebook').href = 'http://www.facebook.com/sharer/sharer.php?u=http://www.transmediagenerator.com/'+hash+'.html'; // met à jour le lien de partage Facebook		
 						}
+					}
 				})
-				$("#projet-wrapper").css("visibility", "visible");
+				$(".project-wrapper").css("visibility", "visible");
 			});
-			$("#projet-wrapper").show("blind", function() {
-				$("#share").css("visibility", "visible");
+			$(".project-wrapper").show("blind", function() {
+				$("#share-wrapper").css("visibility", "visible");
 			});
 		}
-
-		function read_data(sentence) {
-			$("#projet-wrapper").css("visibility", "visible");
-			$("#share").css("visibility", "visible");
-			$("#projet").html(sentence);
+		function read_data(sentence) { // si on a reçu la phrase grâce au hash dans l'URL, utilisée en argument du body onload
+			$(".project-wrapper").css("visibility", "visible");
+			$("#share-wrapper").css("visibility", "visible");
+			$(".project").html(sentence);
 		}
 	</script>
 
@@ -103,7 +103,6 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
 		ga('create', 'UA-68594064-1', 'auto');
 		ga('send', 'pageview');
 	</script>
@@ -114,22 +113,24 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 		<h1>The Amazing Transmedia<br />Project Generator</h1>
 
 		<form id="poll_form" method="post" accept-charset="utf-8">  
-			<label><input type="radio" name="poll_option" value="1" id="poll_option" /> Mon projet est encore flou, c'est pour trouver des stagiaires</label><br />
-			<label><input type="radio" name="poll_option" value="2" id="poll_option" /> Mon projet doit permettre de fédérer des freelances</label><br />
-			<label><input type="radio" name="poll_option" value="3" id="poll_option" checked="checked" /> Mon projet doit être costaud, c'est pour présenter à SXSW</label><br />
+			<label><input type="radio" name="poll_option" value="1" /> Mon projet est encore flou, c'est pour trouver des stagiaires</label><br />
+			<label><input type="radio" name="poll_option" value="2" /> Mon projet doit permettre de fédérer des freelances</label><br />
+			<label><input type="radio" name="poll_option" value="3" checked="checked" /> Mon projet doit être costaud, c'est pour présenter à SXSW</label><br />
 		</form>
 
-		<div id="bouton-actualiser"><input type="button" onClick="generate_data()" value="Créer un nouveau projet transmédia !"></div>
+		<div id="generate-button"><input type="button" onClick="generate_data()" value="Créer un nouveau projet transmédia !"></div>
 
-		<div id="projet-wrapper" style="visibility:hidden;">“ <span id="projet"></span> ”</div>
+		<div class="project-wrapper" style="visibility:hidden;">“ <span class="project"></span> ”</div>
 		
-		<div id="share" style="visibility:hidden;">
+		<div id="share-wrapper" style="visibility:hidden;">
 			Partager ce projet 
 			<a href="http://www.facebook.com/sharer/sharer.php<?php if(isset($hash) && $hash!=''){echo '?u=http://www.transmediagenerator.com/'.$hash.'.html';}?>" id="ShareFacebook">sur Facebook</a> - 
 			<a href="http://twitter.com/?status=<?php if(isset($sentence) && $sentence!=''){echo $sentence.' via @TransmediaGen';}?>" id="ShareTwitter">sur Twitter</a>
 		</div>
 	
 	</div>
+	
+	<a href="liste.html" id="list-link">Tous les projets transmedia créés</a>
 
 </body>
 
