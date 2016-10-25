@@ -1,0 +1,7 @@
+RewriteEngine On
+
+#########   REECRITURE DES PAGES TRANSMEDIA GENERATOR  ########
+RewriteRule ^liste\.html$						/fr/liste.php [QSA,L]
+RewriteRule ^(.*)\.html$						/fr/index.php?hash=$1 [QSA,L]
+
+Redirect 301 /style/partage-1200x996.jpg		/style/transmedia_FB_1200x1200.jpg
