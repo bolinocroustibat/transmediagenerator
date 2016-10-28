@@ -8,6 +8,22 @@ body{
 	background-size: cover;
 }
 
+
+nav ul{
+	margin:0;
+	padding:0;
+	position: absolute;
+	top:15px;
+    right: 15px;
+    width: 200px;
+	list-style-type: none;
+	font-size: 0.7em;
+}
+
+nav ul li{
+	display: inline;
+}
+
 #main-wrapper{
 	max-width:980px;
 	margin:40px auto 0 auto;
@@ -113,8 +129,7 @@ h1 {
 #list-link {
 	font-size:0.6em;
 	color:#86a2ca;
-	text-align:center;
 	position:fixed; 
 	top: 95%; 
-	left:80%;
+	right:20px;
 }

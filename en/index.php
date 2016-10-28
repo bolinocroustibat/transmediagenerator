@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <?php		
 // RECUPERATION DE LA PHRASE EN CAS DE CHARGEMENT DE LA PAGE AVEC HASH
 if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	$hash = $_GET['hash'];
-	$generated_projects_json = file_get_contents("generated_projects.json"); //charge le fichier qui contient l'objet JSON
+	$generated_projects_json = file_get_contents("generated_projects_EN.json"); //charge le fichier qui contient l'objet JSON
 	$generated_projects_table = json_decode($generated_projects_json,true); // transforme l'objet JSON en tableau PHP
 	foreach ($generated_projects_table as $row_obj) { // parcourt chaque ligne du tableau PHP
 		$row = json_decode($row_obj,true); // tranforme l'objet-ligne en tableau
@@ -93,7 +93,6 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 			$(".project").html(sentence);
 		}
 	</script>
-
 </head>
 
 <body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?>>
@@ -107,27 +106,31 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 		ga('send', 'pageview');
 	</script>
 	
+	<nav id="language">
+		<ul>
+			<li><abbr lang="en" title="English">English version</abbr></li>
+			 | 
+			<li><a href="../fr/" hreflang="fr" title="Passer à la version française de ce générateur"><abbr lang="en" title="English">Version française</abbr></a></li>
+		</ul>
+	</nav>
+	
 	<div id="main-wrapper">
-
 		<!-- <h2>Plus aucune chance de voir le financement de son projet refusé, grâce à...</h2> -->
 		<h1>The Amazing VR<br />Project Generator</h1>
-
 		<form id="poll_form" method="post" accept-charset="utf-8">  
 			<label><input type="radio" name="poll_option" value="1" /> My VR project is not very well defined</label><br />
 			<label><input type="radio" name="poll_option" value="2" /> My VR project must be a little impressive so thaht I can find freelances</label><br />
 			<label><input type="radio" name="poll_option" value="3" checked="checked" /> It must be a fucking huge VR project</label><br />
 		</form>
-
 		<div id="generate-button"><input type="button" onClick="generate_data()" value="Create a new VR project!"></div>
-
 		<div class="project-wrapper" style="visibility:hidden;">“ <span class="project"></span> ”</div>
-		
+	
 		<div id="share-wrapper" style="visibility:hidden;">
 			Share this VR project 
 			<a href="http://www.facebook.com/sharer/sharer.php<?php if(isset($hash) && $hash!=''){echo '?u=http://www.transmediagenerator.com/en/'.$hash.'.html';}?>" id="ShareFacebook">on Facebook</a> - 
 			<a href="http://twitter.com/?status=<?php if(isset($sentence) && $sentence!=''){echo $sentence.' via @TransmediaGen';}?>" id="ShareTwitter">on Twitter</a>
 		</div>
-	
+		<a href="splitscreen.php"><img src="../style/VR-NOW.png"</a>
 	</div>
 	
 	<a href="list.html" id="list-link">All VR projects created</a>

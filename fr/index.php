@@ -5,7 +5,7 @@
 // RECUPERATION DE LA PHRASE EN CAS DE CHARGEMENT DE LA PAGE AVEC HASH
 if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	$hash = $_GET['hash'];
-	$generated_projects_json = file_get_contents("generated_projects.json"); //charge le fichier qui contient l'objet JSON
+	$generated_projects_json = file_get_contents("generated_projects_FR.json"); //charge le fichier qui contient l'objet JSON
 	$generated_projects_table = json_decode($generated_projects_json,true); // transforme l'objet JSON en tableau PHP
 	foreach ($generated_projects_table as $row_obj) { // parcourt chaque ligne du tableau PHP
 		$row = json_decode($row_obj,true); // tranforme l'objet-ligne en tableau
@@ -35,7 +35,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<meta property="og:url" content="http://www.transmediagenerator.com/fr/<?php if(isset($hash) && $hash!=''){echo $hash.'.html';}?>" />
 	<meta property="og:title" content="<?php if(isset($sentence) && $sentence!=''){echo 'J\'ai généré mon projet transmédia :';}else{echo 'The Amazing Transmedia Project Generator';} ?>" />
 	<meta property="og:description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'Plus aucune chance de voir le financement de son projet refusé, grâce au générateur de projet transmédia !';} ?>" />
-	<meta property="og:image" content="../style/transmedia_FB_1200x1200.jpg" />
+	<meta property="og:image" content="style/transmedia_FB_1200x1200.jpg" />
 
 	<link rel="apple-touch-icon" sizes="57x57" href="../style/favicons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../style/favicons/apple-icon-60x60.png">
@@ -67,7 +67,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 			$(".project-wrapper").hide("blind", function() {
 				$.ajax({
 					type: "POST",		
-					url: 'ajax_generate.php',
+					url: 'ajax_generate_FR.php',
 					data: $('#poll_form').serialize(),
 					success: function (data) {
 						var dataObj = jQuery.parseJSON(data);
@@ -77,7 +77,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 						history.pushState(sentence, sentence, hash+'.html'); // change l'URL dynamiquement
 						if ((typeof sentence !== 'undefined') && (typeof hash !== 'undefined')) { // si les variables existent
 							document.getElementById('ShareTwitter').href = 'http://twitter.com/?status='+sentence+' via @TransmediaGen'; // met à jour le lien de partage Twitter
-							document.getElementById('ShareFacebook').href = 'http://www.facebook.com/sharer/sharer.php?u=http://www.transmediagenerator.com/fr/'+hash+'.html'; // met à jour le lien de partage Facebook		
+							document.getElementById('ShareFacebook').href = 'http://www.facebook.com/sharer/sharer.php?u=http://www.transmediagenerator.com/'+hash+'.html'; // met à jour le lien de partage Facebook		
 						}
 					}
 				})
@@ -93,7 +93,6 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 			$(".project").html(sentence);
 		}
 	</script>
-
 </head>
 
 <body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?>>
@@ -106,6 +105,14 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 		ga('create', 'UA-68594064-1', 'auto');
 		ga('send', 'pageview');
 	</script>
+	
+	<nav id="language">
+	  <ul>
+		<li><a href="../en/" hreflang="en" title="Switch to the English version of this generator"><abbr lang="en" title="English">English version</abbr></a></li>
+		 | 
+		<li><abbr lang="fr" title="Français">Version française</abbr></li>
+	  </ul>
+	</nav>
 	
 	<div id="main-wrapper">
 

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 	// header("Content-Type: application/json;");
 	header("charset=UTF-8"); 
@@ -48,22 +48,8 @@
 	}
 	
 	$sentence = '';
-	
-	/* CHOIX DU NOM ET DETERMINATION DU GENRE */
-	$data = csv_column_to_array(3);
-	$random_row = rand (0,count($data)-1);
-	$nom = $data[$random_row]; 
-	/* puis on va chercher le genre qui correspond */
-	$data = csv_column_to_array(2);
-	$genre = $data[$random_row];
-	
-	/* test
-	echo 'GENRE : '.$genre.'<br/><br/>';
-	*/
-	
-	$sentence = $nom;
 		
-	/* qualifiant facultatif ("grand", "ambitieux"...) */
+	/* adjectif 1 facultatif ("grand", "ambitieux"...) */
 	if (rand(0,1)==1){ // 1 chance sur 2 d'avoir un qualifiant
 		$data = csv_column_to_array(1);
 		$random_row = rand (0,count($data)-1);
@@ -71,25 +57,31 @@
 		$sentence = $qualifiant.' '.$sentence;	 // on met le quantifiant AVANT le nom
 	}
 	
-	/* CHOIX DE L'ADJECTIF 1 */
-	$data = csv_column_to_array(4);
+	/* CHOIX DE L'ADJECTIF 2 */
+	$data = csv_column_to_array(2);
 	$random_row = rand (0,count($data)-1);
-	$adjectif1 = $data[$random_row];
-	$sentence = $sentence.' '.$adjectif1;
+	$adjectif2 = $data[$random_row];
+	$sentence = $sentence.' '.$adjectif2;
 	
-	/* CHOIX EVENTUEL DE L'ADJECTIF 2 (DIFFERENT) */
+	/* CHOIX DU NOM */
+	$data = csv_column_to_array(3);
+	$random_row = rand (0,count($data)-1);
+	$name = $data[$random_row];
+	$sentence = $sentence.' '.$name;
+
+	/* CHOIX EVENTUEL DE L'ADJECTIF 3 (DIFFERENT) */
 	if ($poll_option == 3){
-		$data = csv_column_to_array(5);
-		$random_row2 = $random_row;	
+		$data = csv_column_to_array(4);
+		$random_row2 = $random_row;
 		while ($random_row2==$random_row) { /* pour qu'il soit différent */
 			$random_row2 = rand (0,count($data)-1);	
 		}
-		$adjectif2 = $data[$random_row2];
-		$sentence = $sentence.' '.$adjectif2;
+		$adjectif3 = $data[$random_row2];
+		$sentence = $sentence.' '.$adjectif3;
 	}
 
-	/* ADVERBE */
-	$data = csv_column_to_array(6);
+	/* CONJONCTION DE SUBORDINATION */
+	$data = csv_column_to_array(5);
 	$random_row = rand (0,count($data)-1);
 	$adverbe = $data[$random_row];
 	$sentence = $sentence.' '.$adverbe;
@@ -97,19 +89,19 @@
 	/* COMPLEMENT VERBEUX */
 	if (rand(0,4) == 4) {
 		/* intransitif */
-		$data = csv_column_to_array(9);
+		$data = csv_column_to_array(8);
 		$random_row = rand (0,count($data)-1);
 		$verbe_intransitif = $data[$random_row];
 		$sentence = $sentence.' '.$verbe_intransitif;			
 	}
 	else {
 		/* transitif */
-		$data = csv_column_to_array(7);
+		$data = csv_column_to_array(6);
 		$random_row = rand (0,count($data)-1);
 		$verbe_transitif = $data[$random_row];
 		$sentence = $sentence.' '.$verbe_transitif;
 		/* cod */
-		$data = csv_column_to_array(8);
+		$data = csv_column_to_array(7);
 		$random_row = rand (0,count($data)-1);
 		$cod = $data[$random_row];
 		$sentence = $sentence.' '.$cod;		
@@ -117,14 +109,19 @@
 	
 	/* COMPLEMENT VRAC */
 	if ($poll_option != 1) {
-		$data = csv_column_to_array(10);
+		$data = csv_column_to_array(9);
 		$random_row = rand (0,count($data)-1);
 		$vrac = $data[$random_row];
 		$sentence = $sentence.' '.$vrac;
 	}
 	
 	/*  LIAISONS (FINAL) */
-	$sentence = 'A '.$sentence;
+	if($sentence[0] == 'a' or $sentence[0] == 'e' or $sentence[0] == 'i' or $sentence[0] == 'o' or $sentence[0] == 'u') {
+		$sentence = 'An '.$sentence;
+	}
+	else{
+		$sentence = 'A '.$sentence;
+	}
 	$pos1 = strpos($sentence,' , ');
 	if(!empty($pos1)) {
 		$sentence = substr_replace($sentence,', ',$pos1,3); // Fait le remplacement de la première virgule trouvée
@@ -133,43 +130,17 @@
 	if(!empty($pos2)) {
 		$sentence = substr_replace($sentence,', ',$pos2,3); // Fait le remplacement de la 2e virgule trouvée
 	}
-	$pos = strpos($sentence,' de e');
-	if(!empty($pos)) {
-		$sentence = substr_replace($sentence," d'e",$pos,5);
-	}
-	$pos = strpos($sentence,' de é');
-	if(!empty($pos)) {
-		$sentence = utf8_substr_replace($sentence," d'é",$pos,5);
-	}
-	$pos = strpos($sentence,' de o');
-	if(!empty($pos)) {
-		$sentence = substr_replace($sentence," d'o",$pos,5);
-	}
-	$pos = strpos($sentence,' de le ');
-	if(!empty($pos)) {
-		$sentence = substr_replace($sentence," du ",$pos,7);
-	}
-	$pos = strpos($sentence,' de les ');
-	if(!empty($pos)) {
-		$sentence = substr_replace($sentence," des ",$pos,8);
-	}
-	$pos = strpos($sentence,' à le ');
-	if(!empty($pos)) {
-		$sentence = substr_replace($sentence,' au ',$pos,6); // Fait le remplacement	de la virgule
-	}
-	$pos = strpos($sentence,' à les ');
-	if(!empty($pos)) {
-		$sentence = substr_replace($sentence,' aux ',$pos,7); // Fait le remplacement	de la virgule
-	}
-	$sentence=ucfirst($sentence).".";
-
-	$hash = hash('md5',$sentence); // Génère le hash
+	$sentence=$sentence.".";
 	
+	/* GENERATION DU HASH */
+	$hash = hash('md5',$sentence);
+	
+	// Crée un JSON avec la phrase et le hash, et l'affiche pour qu'il soit récupéré par Ajax
 	$data = json_encode(array(
 		'hash' => $hash,
 		'sentence' => $sentence
-	)); // Crée un JSON avec la phrase et le hash, et l'affiche pour qu'il soit récupéré par Ajax
-	
+	));
+	// pousse le JSON de ce projet dans le fichier NoSQL JSON
 	$inp = file_get_contents('generated_projects_EN.json');
 	$tempArray = json_decode($inp);
 	array_push($tempArray, $data);

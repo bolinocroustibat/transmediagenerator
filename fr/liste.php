@@ -5,7 +5,7 @@
 
 	<meta charset="UTF-8" />
 
-	<title>The Amazing Transmedia Project Generator | Liste des projets créés</title>
+	<title>The Amazing Transmedia Project Generator | Tous les projets créés</title>
 	
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
@@ -14,7 +14,7 @@
 	<meta name="Generator" content="Notepad++" />
 	<meta name="Keywords" content="transmedia, transmédia, générateur, generator, generateur, crossmedia" />
 
-	<meta property="og:title" content="The Amazing Transmedia Project Generator | Liste des projets créés" />
+	<meta property="og:title" content="The Amazing Transmedia Project Generator | Tous les projets créés" />
 	<meta property="og:image" content="../style/transmedia_FB_1200x1200.jpg" />
 	<meta property="og:url" content="http://www.transmediagenerator.com/fr/liste.html" />
 	<meta property="og:site_name" content="The Amazing Transmedia Project Generator" />
