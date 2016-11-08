@@ -95,7 +95,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	</script>
 </head>
 
-<body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?>>
+<body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?> style="background:url('../style/background_EN-1920x1080-opacite.jpg') no-repeat center center fixed;">
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -117,10 +117,10 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<div id="main-wrapper">
 		<!-- <h2>Plus aucune chance de voir le financement de son projet refusé, grâce à...</h2> -->
 		<h1>The Amazing VR<br />Project Generator</h1>
-		<form id="poll_form" method="post" accept-charset="utf-8">  
-			<label><input type="radio" name="poll_option" value="1" /> My VR project is not very well defined</label><br />
-			<label><input type="radio" name="poll_option" value="2" /> My VR project must be a little impressive so thaht I can find freelances</label><br />
-			<label><input type="radio" name="poll_option" value="3" checked="checked" /> It must be a fucking huge VR project</label><br />
+		<form id="poll_form" method="post" accept-charset="utf-8" style="width:520px;">  
+			<label><input type="radio" name="poll_option" value="1" /> For finding investors: I want my VR project to be as vague as possible</label><br />
+			<label><input type="radio" name="poll_option" value="2" /> For finding freelances: an off-road VR project</label><br />
+			<label><input type="radio" name="poll_option" value="3" checked="checked" /> For finding interns: my VR project must sound impressive</label><br />
 		</form>
 		<div id="generate-button"><input type="button" onClick="generate_data()" value="Create a new VR project!"></div>
 		<div class="project-wrapper" style="visibility:hidden;">“ <span class="project"></span> ”</div>
@@ -130,10 +130,13 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 			<a href="http://www.facebook.com/sharer/sharer.php<?php if(isset($hash) && $hash!=''){echo '?u=http://www.transmediagenerator.com/en/'.$hash.'.html';}?>" id="ShareFacebook">on Facebook</a> - 
 			<a href="http://twitter.com/?status=<?php if(isset($sentence) && $sentence!=''){echo $sentence.' via @TransmediaGen';}?>" id="ShareTwitter">on Twitter</a>
 		</div>
-		<a href="splitscreen.php"><img src="../style/VR-NOW.png"</a>
 	</div>
 	
-	<a href="list.html" id="list-link">All VR projects created</a>
+	<div id="bottom-right-wrapper">
+		<a href="splitscreen.php"><img src="../style/VR-NOW.png" /></a>
+		<br />
+		<a href="list.html" id="list-link">All VR projects created</a>
+	</div>
 
 </body>
 

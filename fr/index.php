@@ -95,7 +95,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	</script>
 </head>
 
-<body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?>>
+<body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?> style="background:url('../style/background_FR-1920x1080-opacite.jpg') no-repeat center center fixed;">
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -137,7 +137,9 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	
 	</div>
 	
-	<a href="liste.html" id="list-link">Tous les projets transmedia créés</a>
+	<div id="bottom-right-wrapper">
+		<a href="liste.html" id="list-link">Tous les projets transmedia créés</a>
+	</div>
 
 </body>
 

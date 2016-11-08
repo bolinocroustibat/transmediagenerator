@@ -4,10 +4,8 @@ body{
 	-webkit-font-smoothing: antialiased;
 	text-align: center;
 	 /* background-color:#c9dae5; */
-	background:url('background-1920x1080-opacite.jpg') no-repeat center center fixed; 
 	background-size: cover;
 }
-
 
 nav ul{
 	margin:0;
@@ -27,14 +25,6 @@ nav ul li{
 #main-wrapper{
 	max-width:980px;
 	margin:40px auto 0 auto;
-}
-
-h2 {
-	font-size:1em;
-	margin: 0px;
-	font-weight:normal;
-	font-style: italic;
-	color:#e7ef00;
 }
 
 h1 {
@@ -126,10 +116,13 @@ h1 {
 	color:#000;
 }
 
+#bottom-right-wrapper{
+	position:fixed; 
+	bottom: 50px; 
+	right:20px;
+}
+
 #list-link {
 	font-size:0.6em;
 	color:#86a2ca;
-	position:fixed; 
-	top: 95%; 
-	right:20px;
 }

@@ -61,28 +61,26 @@
 		}
 		return $word;
 	}
-	
-	
+
 	function csv_column_to_array($column) {
-		static $table;
-		$tmpdata = dirname(__FILE__)."/tmp/csv_cache.txt";
-		$lasttime = file_exists($tmpdata) ? filemtime($tmpdata) : 0;
-		
+		static $temp_table;
+		$cachefile = dirname(__FILE__)."/tmp/csv_cache.txt";
+		// $lasttime = file_exists($cachefile) ? filemtime($cachefile) : 0;
 		if (isset($_GET['force'])) { /* Pour forcer le rafraîchissement du cache. Nota : et si on veut un cache qui est rafraîchi automatiquement au bout d'un certain temps : ($lasttime < time() - 600 || isset($_GET['force'])) */
-			$file = fopen('https://docs.google.com/spreadsheet/pub?key=11K-GO7TLPKKo2VRfOjshr4Qme_SsJVhkuOPiW2b_GpM&output=csv', 'r');
-			$table = array();
-			while($row = fgetcsv($file)) {
+			$csvfile = fopen('https://docs.google.com/spreadsheet/pub?key=11K-GO7TLPKKo2VRfOjshr4Qme_SsJVhkuOPiW2b_GpM&output=csv', 'r');
+			$temp_table = array();
+			while($row = fgetcsv($csvfile)) {
 				// $row = array_map( "utf8_encode", $row ); // à chacune des entrées la fonction utf8_encode est appliquée
-				$table[] = $row;
+				$temp_table[] = $row; // récupère les données
 			}
-			fclose($file);
-			file_put_contents($tmpdata, json_encode($table) );
+			fclose($csvfile);
+			file_put_contents($cache, json_encode($temp_table) ); // met dans le fichier de cachefile les données récupérées
 		}
-		if ( !isset($table) ) {
-			$table = json_decode(file_get_contents($tmpdata) );
+		if ( !isset($temp_table) ) { // et s'il n'y a pas de données récupérées...
+			$temp_table = json_decode(file_get_contents($cachefile) ); // ...on les récupère à partir du fichier de cache
 		}
 		$data = array();
-		foreach( $table as $line => $row) { // met dans le bon ordre
+		foreach( $temp_table as $line => $row) { // met dans le bon ordre
 			if ($row[$column] !='') { // enlève les cellules vides
 				$data[] = $row[$column];
 			}

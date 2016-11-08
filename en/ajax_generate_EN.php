@@ -20,30 +20,29 @@
     }
 	
 	function csv_column_to_array($column) {
-		static $table;
-		$tmpdata = dirname(__FILE__)."/tmp/csv_cache_EN.txt";
-		$lasttime = file_exists($tmpdata) ? filemtime($tmpdata) : 0;
-		
+		static $temp_table;
+		$cachefile = dirname(__FILE__)."/tmp/csv_cache_EN.txt";
+		// $lasttime = file_exists($cachefile) ? filemtime($cachefile) : 0;
 		if (isset($_GET['force'])) { /* Pour forcer le rafraîchissement du cache. Nota : et si on veut un cache qui est rafraîchi automatiquement au bout d'un certain temps : ($lasttime < time() - 600 || isset($_GET['force'])) */
-			$file = fopen('https://docs.google.com/spreadsheet/pub?key=18yKGZOpSgwoMhlExZZVT9AfsEXm4s_vqG93t821vm2o&output=csv', 'r');
-			$table = array();
-			while($row = fgetcsv($file)) {
+			$csvfile = fopen('https://docs.google.com/spreadsheet/pub?key=18yKGZOpSgwoMhlExZZVT9AfsEXm4s_vqG93t821vm2o&output=csv', 'r');
+			$temp_table = array();
+			while($row = fgetcsv($csvfile)) {
 				// $row = array_map( "utf8_encode", $row ); // à chacune des entrées la fonction utf8_encode est appliquée
-				$table[] = $row;
+				$temp_table[] = $row;
 			}
-			fclose($file);
-			file_put_contents($tmpdata, json_encode($table) );
+			fclose($csvfile);
+			file_put_contents($cachefile, json_encode($temp_table) ); // met dans le fichier de cachefile les données récupérées
 		}
-		if ( !isset($table) ) {
-			$table = json_decode(file_get_contents($tmpdata) );
+		if ( !isset($temp_table) ) {
+			$temp_table = json_decode(file_get_contents($cachefile) );
 		}
 		$data = array();
-		foreach( $table as $line => $row) { // met dans le bon ordre
+		foreach( $temp_table as $line => $row) { // met dans le bon ordre
 			if ($row[$column] !='') { // enlève les cellules vides
 				$data[] = $row[$column];
 			}
 		}
-		array_splice($data,0,3); // enlève les trois premières lignes du tableau
+		array_splice($data,0,3); // enlève les 4 premières lignes du tableau
 		return $data;
 	}
 	
@@ -54,7 +53,7 @@
 		$data = csv_column_to_array(1);
 		$random_row = rand (0,count($data)-1);
 		$qualifiant = $data[$random_row];
-		$sentence = $qualifiant.' '.$sentence;	 // on met le quantifiant AVANT le nom
+		$sentence = $qualifiant;
 	}
 	
 	/* CHOIX DE L'ADJECTIF 2 */
@@ -69,47 +68,58 @@
 	$name = $data[$random_row];
 	$sentence = $sentence.' '.$name;
 
-	/* CHOIX EVENTUEL DE L'ADJECTIF 3 (DIFFERENT) */
-	if ($poll_option == 3){
-		$data = csv_column_to_array(4);
-		$random_row2 = $random_row;
-		while ($random_row2==$random_row) { /* pour qu'il soit différent */
-			$random_row2 = rand (0,count($data)-1);	
-		}
-		$adjectif3 = $data[$random_row2];
-		$sentence = $sentence.' '.$adjectif3;
-	}
-
 	/* CONJONCTION DE SUBORDINATION */
-	$data = csv_column_to_array(5);
+	$data = csv_column_to_array(4);
 	$random_row = rand (0,count($data)-1);
 	$adverbe = $data[$random_row];
 	$sentence = $sentence.' '.$adverbe;
 
 	/* COMPLEMENT VERBEUX */
-	if (rand(0,4) == 4) {
-		/* intransitif */
-		$data = csv_column_to_array(8);
+	if ($poll_option == 1){  // intransitif
+
+		$data = csv_column_to_array(11);
 		$random_row = rand (0,count($data)-1);
 		$verbe_intransitif = $data[$random_row];
 		$sentence = $sentence.' '.$verbe_intransitif;			
 	}
-	else {
-		/* transitif */
-		$data = csv_column_to_array(6);
-		$random_row = rand (0,count($data)-1);
-		$verbe_transitif = $data[$random_row];
-		$sentence = $sentence.' '.$verbe_transitif;
-		/* cod */
-		$data = csv_column_to_array(7);
-		$random_row = rand (0,count($data)-1);
-		$cod = $data[$random_row];
-		$sentence = $sentence.' '.$cod;		
+	else { // transitif
+		if (rand(0,2) == 0) { // transitif chose
+			$data = csv_column_to_array(5); // verbe transitif chose
+			$random_row = rand (0,count($data)-1);
+			$verbe_transitif = $data[$random_row];
+			$sentence = $sentence.' '.$verbe_transitif;
+			/* cod */
+			$data = csv_column_to_array(6); // COD chose
+			$random_row = rand (0,count($data)-1);
+			$cod = $data[$random_row];
+			$sentence = $sentence.' '.$cod;			
+		}
+		elseif (rand(0,2) == 1) { // transitif personne
+			$data = csv_column_to_array(7);  // verbe transitif personne
+			$random_row = rand (0,count($data)-1);
+			$verbe_transitif = $data[$random_row];
+			$sentence = $sentence.' '.$verbe_transitif;
+			$data = csv_column_to_array(8); // COD personne
+			$random_row = rand (0,count($data)-1);
+			$cod = $data[$random_row];
+			$sentence = $sentence.' '.$cod;			
+		}
+		else { // transitif endroit
+			$data = csv_column_to_array(9);  // verbe transitif endroit
+			$random_row = rand (0,count($data)-1);
+			$verbe_transitif = $data[$random_row];
+			$sentence = $sentence.' '.$verbe_transitif;
+			/* cod */
+			$data = csv_column_to_array(10); // COD endroit
+			$random_row = rand (0,count($data)-1);
+			$cod = $data[$random_row];
+			$sentence = $sentence.' '.$cod;		
+		}	
 	}
 	
 	/* COMPLEMENT VRAC */
-	if ($poll_option != 1) {
-		$data = csv_column_to_array(9);
+	if ($poll_option == 3) {
+		$data = csv_column_to_array(12);
 		$random_row = rand (0,count($data)-1);
 		$vrac = $data[$random_row];
 		$sentence = $sentence.' '.$vrac;
@@ -130,7 +140,7 @@
 	if(!empty($pos2)) {
 		$sentence = substr_replace($sentence,', ',$pos2,3); // Fait le remplacement de la 2e virgule trouvée
 	}
-	$sentence=$sentence.".";
+	$sentence=$sentence.'.';
 	
 	/* GENERATION DU HASH */
 	$hash = hash('md5',$sentence);
