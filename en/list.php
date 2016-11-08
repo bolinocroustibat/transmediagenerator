@@ -12,7 +12,7 @@
 	
 	<meta name="Description" content="'Plus aucune chance de voir le financement de son projet refusé, grâce au générateur de projet transmédia !" />
 	<meta name="Generator" content="Notepad++" />
-	<meta name="Keywords" content="transmedia, transmédia, générateur, generator, generateur, crossmedia" />
+	<meta name="Keywords" content="virtual reality, vr, generator, transmedia" />
 
 	<meta property="og:title" content="The Amazing VR Project Generator | All created projects" />
 	<meta property="og:image" content="../style/transmedia_FB_1200x1200.jpg" />
@@ -46,7 +46,7 @@
 	
 </head>
 
-<body>
+<body style="background:url('../style/background_EN-1920x1080-opacite.jpg') no-repeat center center fixed;">
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

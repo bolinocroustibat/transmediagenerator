@@ -46,7 +46,7 @@
 	
 </head>
 
-<body>
+<body style="background:url('../style/background_FR-1920x1080-opacite.jpg') no-repeat center center fixed;">
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
