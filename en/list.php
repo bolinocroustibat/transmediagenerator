@@ -38,8 +38,24 @@
 	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
-	<link href="../style/normalize.css" rel="stylesheet" type="text/css" media="all">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css" media="all">
 	<link href="../style/style.css" rel="stylesheet" type="text/css" media="all">	
+	<style type="text/css">
+		body{ 
+			background:url('../style/background_EN-1920x1080-opacite_vert.jpg') no-repeat center center fixed;
+		}
+		h1{
+			font-family: 'Ranga', cursive;
+			font-size:3.8em;
+			color:#ea6799; // #b71d1f
+		}
+		h1 .big_h1 {
+			font-size:1.5em;
+		}
+		.project-wrapper{
+			background: #d3e3d7;
+		}
+	</style>
 	
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -73,7 +89,7 @@
 				$row = json_decode($row_obj,true); // tranforme l'objet-ligne en tableau
 				$hash = $row["hash"];
 				$sentence = $row["sentence"];
-				echo ($total_nb-$nb).'<sup>e</sup> created VR project:<li class="project-wrapper">“ <a class="project" href="'.$hash.'.html">'.$sentence.'</a> ”</li>';
+				echo 'Created VR project #.'($total_nb-$nb)'.:<li class="project-wrapper">“ <a class="project" href="'.$hash.'.html">'.$sentence.'</a> ”</li>';
 				$nb++;
 			}
 			?>

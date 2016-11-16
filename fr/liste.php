@@ -38,8 +38,23 @@
 	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
-	<link href="../style/normalize.css" rel="stylesheet" type="text/css" media="all">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css" media="all">
 	<link href="../style/style.css" rel="stylesheet" type="text/css" media="all">	
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<style type="text/css">
+		body{ 
+			background:url('../style/background_FR-1920x1080-opacite.jpg') no-repeat center center fixed;
+		}
+		h1{
+			font-family: 'Codystar', cursive;
+			font-size:2.2em;
+			color:#e7ef00;
+		}
+		h1 .big_h1 {
+			font-size:1.5em;
+		}
+	</style>
 	
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>

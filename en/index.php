@@ -23,7 +23,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<title>The Amazing VR Project Generator</title>
 	
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Ranga" rel="stylesheet">
 	
 	<meta name="Description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'No chance that your project is not going to be refused, thanks to the Amazing VR Project Generator!';} ?>" />
 	<meta name="Generator" content="Notepad++" />
@@ -55,8 +55,27 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
-	<link href="../style/normalize.css" rel="stylesheet" type="text/css" media="all">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css" media="all">
 	<link href="../style/style.css" rel="stylesheet" type="text/css" media="all">	
+	<style type="text/css">
+		body{ 
+			background:url('../style/background_EN-1920x1080-opacite_vert.jpg') no-repeat center center fixed;
+		}
+		h1{
+			font-family: 'Ranga', cursive;
+			font-size:3.8em;
+			color:#ea6799; // #b71d1f
+		}
+		h1 .big_h1 {
+			font-size:1.5em;
+		}
+		.project-wrapper{
+			background: #d3e3d7;
+		}
+		#list-link {
+			color:#79a983;
+		}
+	</style>
 	
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -95,7 +114,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	</script>
 </head>
 
-<body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?> style="background:url('../style/background_EN-1920x1080-opacite.jpg') no-repeat center center fixed;">
+<body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?>>
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -116,7 +135,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	
 	<div id="main-wrapper">
 		<!-- <h2>Plus aucune chance de voir le financement de son projet refusé, grâce à...</h2> -->
-		<h1>The Amazing VR<br />Project Generator</h1>
+		<h1>The Amazing<div class="big_h1">VR Project Generator<div class="big_h1"></h1>
 		<form id="poll_form" method="post" accept-charset="utf-8" style="width:520px;">  
 			<label><input type="radio" name="poll_option" value="1" /> For finding investors: I want my VR project to be as vague as possible</label><br />
 			<label><input type="radio" name="poll_option" value="2" /> For finding freelances: an off-road VR project</label><br />

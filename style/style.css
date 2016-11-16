@@ -15,7 +15,7 @@ nav ul{
     right: 15px;
     width: 200px;
 	list-style-type: none;
-	font-size: 0.7em;
+	font-size: 0.8em;
 }
 
 nav ul li{
@@ -28,10 +28,8 @@ nav ul li{
 }
 
 h1 {
-	font-family: 'Codystar', cursive;
-	font-size:3.6em;
+	text-transform: uppercase;
 	font-weight:bold;
-	color:#e7ef00;
 	margin: 0 0 40px 0;
 }
 
@@ -124,5 +122,4 @@ h1 {
 
 #list-link {
 	font-size:0.6em;
-	color:#86a2ca;
 }
