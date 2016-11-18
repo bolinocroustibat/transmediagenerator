@@ -23,7 +23,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<title>The Amazing VR Project Generator</title>
 	
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Ranga" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 	
 	<meta name="Description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'No chance that your project is not going to be refused, thanks to the Amazing VR Project Generator!';} ?>" />
 	<meta name="Generator" content="Notepad++" />
@@ -62,9 +62,9 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 			background:url('../style/background_EN-1920x1080-opacite_vert.jpg') no-repeat center center fixed;
 		}
 		h1{
-			font-family: 'Ranga', cursive;
-			font-size:3.8em;
-			color:#ea6799; // #b71d1f
+			font-family: 'Bungee Shade', cursive;
+			font-size:2.8em;
+			color:#91eeef; // #b71d1f
 		}
 		h1 .big_h1 {
 			font-size:1.5em;

@@ -60,7 +60,8 @@
 	$data = csv_column_to_array(2);
 	$random_row = rand (0,count($data)-1);
 	$adjectif2 = $data[$random_row];
-	$sentence = $sentence.' '.$adjectif2;
+	if ($sentence[0] == ''){ $sentence = $adjectif2; }
+	else { $sentence = $sentence.' '.$adjectif2; }
 	
 	/* CHOIX DU NOM */
 	$data = csv_column_to_array(3);
@@ -76,7 +77,6 @@
 
 	/* COMPLEMENT VERBEUX */
 	if ($poll_option == 1){  // intransitif
-
 		$data = csv_column_to_array(11);
 		$random_row = rand (0,count($data)-1);
 		$verbe_intransitif = $data[$random_row];
@@ -126,7 +126,7 @@
 	}
 	
 	/*  LIAISONS (FINAL) */
-	if($sentence[0] == 'a' or $sentence[0] == 'e' or $sentence[0] == 'i' or $sentence[0] == 'o' or $sentence[0] == 'u' or $sentence[0] == 'U' ) {
+	if($sentence[0] == 'a' or $sentence[0] == 'e' or $sentence[0] == 'i' or $sentence[0] == 'o' or ($sentence[0] == 'u' && substr($sentence,0,3)=='uni')) {
 		$sentence = 'An '.$sentence;
 	}
 	else{
