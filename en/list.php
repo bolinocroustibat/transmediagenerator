@@ -7,8 +7,8 @@
 
 	<title>The Amazing VR Project Generator | All created projects</title>
 	
-	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 	
 	<meta name="Description" content="'Plus aucune chance de voir le financement de son projet refusé, grâce au générateur de projet transmédia !" />
 	<meta name="Generator" content="Notepad++" />
@@ -45,15 +45,18 @@
 			background:url('../style/background_EN-1920x1080-opacite_vert.jpg') no-repeat center center fixed;
 		}
 		h1{
-			font-family: 'Ranga', cursive;
-			font-size:3.8em;
-			color:#ea6799; // #b71d1f
+			font-family: 'Bungee Shade', cursive;
+			font-size:2.8em;
+			color:#91eeef; // #b71d1f
 		}
 		h1 .big_h1 {
 			font-size:1.5em;
 		}
 		.project-wrapper{
 			background: #d3e3d7;
+		}
+		#list-link {
+			color:#79a983;
 		}
 	</style>
 	
@@ -62,14 +65,13 @@
 	
 </head>
 
-<body style="background:url('../style/background_EN-1920x1080-opacite.jpg') no-repeat center center fixed;">
+<body>
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
 		ga('create', 'UA-68594064-1', 'auto');
 		ga('send', 'pageview');
 	</script>
@@ -77,7 +79,7 @@
 	<div id="main-wrapper">
 
 		<!-- <h2>Plus aucune chance de voir le financement de son projet refusé, grâce à...</h2> -->
-		<h1>The Amazing VR<br />Project Generator</h1>
+		<h1>The Amazing<div class="big_h1">VR Project Generator<div class="big_h1"></h1>
 
 		<ul>
 			<?php		
@@ -89,7 +91,7 @@
 				$row = json_decode($row_obj,true); // tranforme l'objet-ligne en tableau
 				$hash = $row["hash"];
 				$sentence = $row["sentence"];
-				echo 'Created VR project #.'($total_nb-$nb)'.:<li class="project-wrapper">“ <a class="project" href="'.$hash.'.html">'.$sentence.'</a> ”</li>';
+				echo ($total_nb-$nb).'<sup>e</sup> projet transmédia créé :<li class="project-wrapper">“ <a class="project" href="'.$hash.'.html">'.$sentence.'</a> ”</li>';
 				$nb++;
 			}
 			?>

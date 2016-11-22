@@ -22,7 +22,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 
 	<title>The Amazing VR Project Generator</title>
 	
-	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 	
 	<meta name="Description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'No chance that your project is not going to be refused, thanks to the Amazing VR Project Generator!';} ?>" />

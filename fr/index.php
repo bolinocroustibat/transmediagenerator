@@ -22,8 +22,8 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 
 	<title>The Amazing Transmedia Project Generator</title>
 	
-	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet'>
 	
 	<meta name="Description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'Plus aucune chance de voir le financement de son projet refusé, grâce au générateur de projet transmédia !';} ?>" />
 	<meta name="Generator" content="Notepad++" />

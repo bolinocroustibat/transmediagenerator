@@ -40,8 +40,6 @@
 
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css" media="all">
 	<link href="../style/style.css" rel="stylesheet" type="text/css" media="all">	
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<style type="text/css">
 		body{ 
 			background:url('../style/background_FR-1920x1080-opacite.jpg') no-repeat center center fixed;
@@ -54,6 +52,9 @@
 		h1 .big_h1 {
 			font-size:1.5em;
 		}
+		#list-link {
+			color:#86a2ca;
+		}
 	</style>
 	
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -61,14 +62,13 @@
 	
 </head>
 
-<body style="background:url('../style/background_FR-1920x1080-opacite.jpg') no-repeat center center fixed;">
+<body>
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
 		ga('create', 'UA-68594064-1', 'auto');
 		ga('send', 'pageview');
 	</script>
@@ -76,11 +76,11 @@
 	<div id="main-wrapper">
 
 		<!-- <h2>Plus aucune chance de voir le financement de son projet refusé, grâce à...</h2> -->
-		<h1>The Amazing Transmedia<br />Project Generator</h1>
+		<h1>The Amazing<div class="big_h1">Transmedia Project Generator</div></h1>
 
 		<ul>
 			<?php		
-			$generated_projects_json = file_get_contents("generated_projects.json"); //charge le fichier qui contient l'objet JSON
+			$generated_projects_json = file_get_contents("generated_projects_FR.json"); //charge le fichier qui contient l'objet JSON
 			$generated_projects_table = array_reverse(json_decode($generated_projects_json,true)); // transforme l'objet JSON en tableau PHP, qu'on met à l'envers (chronologique)
 			$total_nb = count($generated_projects_table); //nb d'entrées dans le tableau
 			$nb=0;

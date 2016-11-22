@@ -126,7 +126,7 @@
 	}
 	
 	/*  LIAISONS (FINAL) */
-	if($sentence[0] == 'a' or $sentence[0] == 'e' or $sentence[0] == 'i' or $sentence[0] == 'o' or ($sentence[0] == 'u' && substr($sentence,0,3)=='uni')) {
+	if($sentence[0] == 'a' or $sentence[0] == 'e' or $sentence[0] == 'i' or $sentence[0] == 'o' or $sentence[0] == 'O' or ($sentence[0] == 'u' && substr($sentence,0,3)!='uni')) {
 		$sentence = 'An '.$sentence;
 	}
 	else{
