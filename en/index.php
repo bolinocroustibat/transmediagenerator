@@ -24,11 +24,10 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
-	
 	<meta name="Description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'No chance that your project is not going to be refused, thanks to the Amazing VR Project Generator!';} ?>" />
 	<meta name="Generator" content="Notepad++" />
 	<meta name="Keywords" content="vr, transmedia, generator" />
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<meta property="og:locale" content="en_EN">
 	<meta property="og:site_name" content="The Amazing VR Project Generator" />
 	<meta property="og:type" content="website" />
@@ -36,7 +35,6 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<meta property="og:title" content="<?php if(isset($sentence) && $sentence!=''){echo 'I\'ve just generated my VR project:';}else{echo 'The Amazing VR Project Generator';} ?>" />
 	<meta property="og:description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'No chance that your project is not going to be refused, thanks to the Amazing VR Project Generator!';} ?>" />
 	<meta property="og:image" content="../style/transmedia_FB_1200x1200.jpg" />
-
 	<link rel="apple-touch-icon" sizes="57x57" href="../style/favicons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../style/favicons/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../style/favicons/apple-icon-72x72.png">
@@ -58,22 +56,24 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css" media="all">
 	<link href="../style/style.css" rel="stylesheet" type="text/css" media="all">	
 	<style type="text/css">
-		body{ 
-			background:url('../style/background_EN-1920x1080-opacite_vert.jpg') no-repeat center center fixed;
-		}
 		h1{
 			font-family: 'Bungee Shade', cursive;
 			font-size:2.8em;
 			color:#91eeef; // #b71d1f
 		}
-		h1 .big_h1 {
-			font-size:1.5em;
+		#poll_form {
+			max-width:520px;
 		}
 		.project-wrapper{
 			background: #d3e3d7;
 		}
 		#list-link {
 			color:#79a983;
+		}
+		@media screen and (max-width:500px) {
+			h1 {
+				font-size:1.2em;
+			}
 		}
 	</style>
 	
@@ -114,7 +114,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	</script>
 </head>
 
-<body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?>>
+<body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?> style="background:url('../style/background_EN-1920x1080-opacite_vert.jpg') no-repeat center center fixed;">
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -136,7 +136,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<div id="main-wrapper">
 		<!-- <h2>Plus aucune chance de voir le financement de son projet refusé, grâce à...</h2> -->
 		<h1>The Amazing<div class="big_h1">VR Project Generator<div class="big_h1"></h1>
-		<form id="poll_form" method="post" accept-charset="utf-8" style="width:520px;">  
+		<form id="poll_form" method="post" accept-charset="utf-8">  
 			<label><input type="radio" name="poll_option" value="1" /> For finding investors: I want my VR project to be as vague as possible</label><br />
 			<label><input type="radio" name="poll_option" value="2" /> For finding freelances: an off-road VR project</label><br />
 			<label><input type="radio" name="poll_option" value="3" checked="checked" /> For finding interns: my VR project must sound impressive</label><br />
@@ -150,7 +150,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 			<a href="http://twitter.com/?status=<?php if(isset($sentence) && $sentence!=''){echo $sentence.' via @TransmediaGen';}?>" id="ShareTwitter">on Twitter</a>
 		</div>
 	</div>
-	
+
 	<div id="bottom-right-wrapper">
 		<a href="splitscreen.php"><img src="../style/VR-NOW.png" /></a>
 		<br />

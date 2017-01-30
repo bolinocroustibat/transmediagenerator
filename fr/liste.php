@@ -9,17 +9,15 @@
 	
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
-	
 	<meta name="Description" content="'Plus aucune chance de voir le financement de son projet refusé, grâce au générateur de projet transmédia !" />
 	<meta name="Generator" content="Notepad++" />
 	<meta name="Keywords" content="transmedia, transmédia, générateur, generator, generateur, crossmedia" />
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<meta property="og:title" content="The Amazing Transmedia Project Generator | Tous les projets créés" />
 	<meta property="og:image" content="../style/transmedia_FB_1200x1200.jpg" />
 	<meta property="og:url" content="http://www.transmediagenerator.com/fr/liste.html" />
 	<meta property="og:site_name" content="The Amazing Transmedia Project Generator" />
 	<meta property="og:description" content="Plus aucune chance de voir le financement de son projet refusé, grâce au générateur de projet transmédia !" />
-	
 	<link rel="apple-touch-icon" sizes="57x57" href="../style/favicons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../style/favicons/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../style/favicons/apple-icon-72x72.png">

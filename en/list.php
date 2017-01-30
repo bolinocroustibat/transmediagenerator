@@ -9,17 +9,15 @@
 	
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
-	
 	<meta name="Description" content="'Plus aucune chance de voir le financement de son projet refusé, grâce au générateur de projet transmédia !" />
 	<meta name="Generator" content="Notepad++" />
 	<meta name="Keywords" content="virtual reality, vr, generator, transmedia" />
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<meta property="og:title" content="The Amazing VR Project Generator | All created projects" />
 	<meta property="og:image" content="../style/transmedia_FB_1200x1200.jpg" />
 	<meta property="og:url" content="http://www.transmediagenerator.com/fr/liste.html" />
 	<meta property="og:site_name" content="The Amazing Transmedia Project Generator" />
 	<meta property="og:description" content="Plus aucune chance de voir le financement de son projet refusé, grâce au générateur de projet transmédia !" />
-	
 	<link rel="apple-touch-icon" sizes="57x57" href="../style/favicons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../style/favicons/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../style/favicons/apple-icon-72x72.png">
@@ -41,16 +39,13 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css" media="all">
 	<link href="../style/style.css" rel="stylesheet" type="text/css" media="all">	
 	<style type="text/css">
-		body{ 
-			background:url('../style/background_EN-1920x1080-opacite_vert.jpg') no-repeat center center fixed;
-		}
 		h1{
 			font-family: 'Bungee Shade', cursive;
 			font-size:2.8em;
 			color:#91eeef; // #b71d1f
 		}
-		h1 .big_h1 {
-			font-size:1.5em;
+		#poll_form {
+			max-width:520px;
 		}
 		.project-wrapper{
 			background: #d3e3d7;
@@ -58,8 +53,12 @@
 		#list-link {
 			color:#79a983;
 		}
+		@media screen and (max-width:500px) {
+			h1 {
+				font-size:1.2em;
+			}
+		}
 	</style>
-	
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	

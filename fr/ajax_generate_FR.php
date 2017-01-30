@@ -74,7 +74,7 @@
 				$temp_table[] = $row; // récupère les données
 			}
 			fclose($csvfile);
-			file_put_contents($cache, json_encode($temp_table) ); // met dans le fichier de cachefile les données récupérées
+			file_put_contents($cachefile, json_encode($temp_table) ); // met dans le fichier de cachefile les données récupérées
 		}
 		if ( !isset($temp_table) ) { // et s'il n'y a pas de données récupérées...
 			$temp_table = json_decode(file_get_contents($cachefile) ); // ...on les récupère à partir du fichier de cache

@@ -4,7 +4,6 @@ body{
 	-webkit-font-smoothing: antialiased;
 	text-align: center;
 	 /* background-color:#c9dae5; */
-	background-size: cover;
 }
 
 nav ul{
@@ -23,18 +22,24 @@ nav ul li{
 }
 
 #main-wrapper{
+	width:80%;
 	max-width:980px;
 	margin:40px auto 0 auto;
 }
 
 h1 {
-	text-transform: uppercase;
-	font-weight:bold;
 	margin: 0 0 40px 0;
+	font-family: 'Codystar', cursive;
+	font-size:2.2em;
+	color:#e7ef00;
+}
+
+h1 .big_h1 {
+	font-size:1.5em;
 }
 
 #poll_form {
-	width:450px;
+	max-width:450px;
 	margin: 0 auto 0 auto;
 	line-height:130%;
 	text-align:left;
@@ -103,7 +108,7 @@ h1 {
 }
 
 #share-wrapper{
-	font-size:13px;
+	font-size:0.8em;
 }
 
 #share-wrapper a{
@@ -121,5 +126,34 @@ h1 {
 }
 
 #list-link {
+	color:#86a2ca;
 	font-size:0.6em;
+}
+
+@media screen and (max-width:500px) {
+	nav ul{
+	top:10px;
+	right: 5px;
+	font-size:0.6em;		
+	}
+	h1 {
+	margin: 0 0 15px 0;
+	font-size:1.2em;
+	}
+	#poll_form {
+	font-size:0.8em;
+	}
+	.project-wrapper{
+	font-size: 1.1em;
+	}
+	#share-wrapper{
+	font-size:0.6em;
+	}
+	#bottom-right-wrapper {
+	bottom: 0px; 
+	right:-80px;
+	}
+	img{
+	width:30%;
+	}
 }
