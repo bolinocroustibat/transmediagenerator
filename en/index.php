@@ -35,6 +35,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<meta property="og:title" content="<?php if(isset($sentence) && $sentence!=''){echo 'I\'ve just generated my VR project:';}else{echo 'The Amazing VR Project Generator';} ?>" />
 	<meta property="og:description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'No chance that your project is not going to be refused, thanks to the Amazing VR Project Generator!';} ?>" />
 	<meta property="og:image" content="../style/transmedia_FB_1200x1200.jpg" />
+	<link rel="alternate" hreflang="fr" href="http://www.transmediagenerator.com/fr/" />
 	<link rel="apple-touch-icon" sizes="57x57" href="../style/favicons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../style/favicons/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../style/favicons/apple-icon-72x72.png">

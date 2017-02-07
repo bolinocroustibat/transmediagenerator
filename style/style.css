@@ -130,7 +130,7 @@ h1 .big_h1 {
 	font-size:0.6em;
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:700px) {
 	nav ul{
 	top:10px;
 	right: 5px;

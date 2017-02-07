@@ -38,29 +38,13 @@
 
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css" media="all">
 	<link href="../style/style.css" rel="stylesheet" type="text/css" media="all">	
-	<style type="text/css">
-		body{ 
-			background:url('../style/background_FR-1920x1080-opacite.jpg') no-repeat center center fixed;
-		}
-		h1{
-			font-family: 'Codystar', cursive;
-			font-size:2.2em;
-			color:#e7ef00;
-		}
-		h1 .big_h1 {
-			font-size:1.5em;
-		}
-		#list-link {
-			color:#86a2ca;
-		}
-	</style>
-	
+
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	
 </head>
 
-<body>
+<body style="background:url('../style/background_FR-1920x1080-opacite.jpg') no-repeat center center fixed;">
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
