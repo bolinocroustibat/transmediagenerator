@@ -115,7 +115,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	</script>
 </head>
 
-<body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?> style="background:url('../style/background_EN-1920x1080-opacite_vert.jpg') no-repeat center center fixed;">
+<body<?php if(isset($sentence) && $sentence!=''){echo ' onload="read_data(\''.addslashes($sentence).'\')"';} ?> style="background:url('../style/background_EN-1920x1080-opacite_vert.jpg');">
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

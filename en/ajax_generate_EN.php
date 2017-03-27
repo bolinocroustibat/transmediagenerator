@@ -60,7 +60,7 @@
 	$data = csv_column_to_array(2);
 	$random_row = rand (0,count($data)-1);
 	$adjectif2 = $data[$random_row];
-	if ($sentence[0] == ''){ $sentence = $adjectif2; }
+	if ($sentence == ''){ $sentence = $adjectif2; }
 	else { $sentence = $sentence.' '.$adjectif2; }
 	
 	/* CHOIX DU NOM */

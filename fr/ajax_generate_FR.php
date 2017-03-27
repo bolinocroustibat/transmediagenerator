@@ -66,7 +66,7 @@
 		static $temp_table;
 		$cachefile = dirname(__FILE__)."/tmp/csv_cache.txt";
 		// $lasttime = file_exists($cachefile) ? filemtime($cachefile) : 0;
-		if (isset($_GET['force'])) { /* Pour forcer le rafraîchissement du cache. Nota : et si on veut un cache qui est rafraîchi automatiquement au bout d'un certain temps : ($lasttime < time() - 600 || isset($_GET['force'])) */
+		if (isset($_GET['force'])) { // Pour forcer le rafraîchissement du cache. Nota : et si on veut un cache qui est rafraîchi automatiquement au bout d'un certain temps : ($lasttime < time() - 600 || isset($_GET['force']))
 			$csvfile = fopen('https://docs.google.com/spreadsheet/pub?key=11K-GO7TLPKKo2VRfOjshr4Qme_SsJVhkuOPiW2b_GpM&output=csv', 'r');
 			$temp_table = array();
 			while($row = fgetcsv($csvfile)) {
