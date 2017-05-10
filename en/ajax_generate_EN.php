@@ -1,25 +1,8 @@
 <?php
 
-	// header("Content-Type: application/json;");
-	header("charset=UTF-8"); 
-	
 	if (empty($poll_option)){
 		$poll_option = $_POST['poll_option'];
 	}
-	
-	/* RECHERCHE DANS UNE CHAINE UNICODE */
-	function substr_unicode($str, $s, $l = null) {
-		return join("", array_slice(
-			preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY), $s, $l));
-	}
-
-	/* REMPLACEMENT DANS UNE CHAINE UNICODE */
-    function utf8_substr_replace($original, $replacement, $position, $length) {
-		$startString = mb_substr($original, 0, $position, "UTF-8");
-		$endString = mb_substr($original, $position + $length, mb_strlen($original), "UTF-8");
-		$out = $startString . $replacement . $endString;
-		return $out;
-    }
 	
 	function csv_column_to_array($column) {
 		static $temp_table;
