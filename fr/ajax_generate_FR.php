@@ -1,9 +1,8 @@
 ﻿<?php
 
-	// header("Content-Type: application/json;");
-	header("charset=UTF-8"); 
-	
-	$poll_option = $_POST['poll_option'];
+	if (empty($poll_option)){
+		$poll_option = $_POST['poll_option'];
+	}
 	
 	/* RECHERCHE DANS UNE CHAINE UNICODE */
 	function substr_unicode($str, $s, $l = null) {

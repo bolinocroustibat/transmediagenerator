@@ -8,7 +8,7 @@ $array_data = json_decode($data,true);
 $tweet = $array_data['sentence'];
 
 // require codebird
-require_once('./twitter-codebird/codebird.php');
+require_once(__DIR__.'/twitter-codebird/codebird.php');
 
 \Codebird\Codebird::setConsumerKey("v5wtfm2twBjj1jEQnJUcCeilx", "YeYebDAWsyQpO31n67QUPgckTVlj86aXyPUTgy7nCZcePcnYb0");
 $cb = \Codebird\Codebird::getInstance();
