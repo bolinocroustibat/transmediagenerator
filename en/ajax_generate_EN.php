@@ -8,7 +8,7 @@
 		static $temp_table;
 		$cachefile = dirname(__FILE__)."/tmp/csv_cache_EN.txt";
 		// $lasttime = file_exists($cachefile) ? filemtime($cachefile) : 0;
-		if (isset($_GET['force'])) { /* Pour forcer le rafraîchissement du cache. Nota : et si on veut un cache qui est rafraîchi automatiquement au bout d'un certain temps : ($lasttime < time() - 600 || isset($_GET['force'])) */
+		if (isset($_GET['force'])) { // Pour forcer le rafraîchissement du cache. Nota : et si on veut un cache qui est rafraîchi automatiquement au bout d'un certain temps : ($lasttime < time() - 600 || isset($_GET['force']))
 			$csvfile = fopen('https://docs.google.com/spreadsheet/pub?key=18yKGZOpSgwoMhlExZZVT9AfsEXm4s_vqG93t821vm2o&output=csv', 'r');
 			$temp_table = array();
 			while($row = fgetcsv($csvfile)) {
@@ -109,7 +109,7 @@
 		$vrac = $data[$random_row];
 		$sentence = $sentence.' '.$vrac;
 	}
-	
+
 	/*  LIAISONS (FINAL) */
 	if($sentence[0] == 'a' or $sentence[0] == 'e' or $sentence[0] == 'i' or $sentence[0] == 'o' or $sentence[0] == 'O' or ($sentence[0] == 'u' && substr($sentence,0,3)!='uni')) {
 		$sentence = 'An '.$sentence;
@@ -126,26 +126,25 @@
 		$sentence = substr_replace($sentence,', ',$pos2,3); // Fait le remplacement de la 2e virgule trouvée
 	}
 	$sentence=$sentence.'.';
-	
-	/* GENERATION DU HASH */
-	$hash = hash('md5',$sentence);
-	
-	// Crée un JSON avec la phrase et le hash, et l'affiche pour qu'il soit récupéré par Ajax
+
+	$hash = hash('md5',$sentence); // Génère le hash
+
+	// Crée un object JSON avec la phrase et le hash
 	$data = json_encode(array(
 		'hash' => $hash,
 		'sentence' => $sentence
 	));
-	// pousse le JSON de ce projet dans le fichier NoSQL JSON
-	$inp = file_get_contents('generated_projects_EN.json');
+
+	$inp = file_get_contents(dirname( __FILE__ ) .'/generated_projects_EN.json'); // recupere le fichier JSON
 	$tempArray = json_decode($inp);
 	array_push($tempArray, $data);
 	$jsonData = json_encode($tempArray);
 	if(isset($jsonData) && $jsonData!=''){
-		file_put_contents('generated_projects_EN.json', $jsonData, LOCK_EX);
+		file_put_contents(dirname( __FILE__ ) .'/generated_projects_EN.json', $jsonData, LOCK_EX); // pousse le JSON de ce projet dans le fichier JSON
 	}
 	
 	// file_put_contents('generated_projects_EN.json',$data,FILE_APPEND | LOCK_EX); // FILE_APPEND pour ajouter à la suite sans écraser ce qu'il y avait avant
 	
-	echo $data;
+	echo $data; // affichage de l'objet JSON pour récupération en AJAX
 
 ?>
