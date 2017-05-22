@@ -222,22 +222,23 @@
 	$sentence=ucfirst($sentence).".";
 
 	$hash = hash('md5',$sentence); // Génère le hash
-	
+
+	// Crée un object JSON avec la phrase et le hash
 	$data = json_encode(array(
 		'hash' => $hash,
 		'sentence' => $sentence
-	)); // Crée un JSON avec la phrase et le hash, et l'affiche pour qu'il soit récupéré par Ajax
+	));
 	
-	$inp = file_get_contents('generated_projects_FR.json');
+	$inp = file_get_contents(dirname( __FILE__ ) .'/generated_projects_FR.json');
 	$tempArray = json_decode($inp);
 	array_push($tempArray, $data);
 	$jsonData = json_encode($tempArray);
 	if(isset($jsonData) && $jsonData!=''){
-		file_put_contents('generated_projects_FR.json', $jsonData, LOCK_EX);
+		file_put_contents(dirname( __FILE__ ) .'/generated_projects_FR.json', $jsonData, LOCK_EX);
 	}
 	
 	// file_put_contents('generated_projects.json',$data,FILE_APPEND | LOCK_EX); // FILE_APPEND pour ajouter à la suite sans écraser ce qu'il y avait avant
 	
-	echo $data;
+	echo $data; // affichage de l'objet JSON pour récupération en AJAX
 
 ?>
