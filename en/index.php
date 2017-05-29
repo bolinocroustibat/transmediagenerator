@@ -130,7 +130,7 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 		<ul>
 			<li><abbr lang="en" title="English">English version</abbr></li>
 			 | 
-			<li><a href="../fr/" hreflang="fr" title="Passer à la version française de ce générateur"><abbr lang="en" title="English">Version française</abbr></a></li>
+			<li><a rel="alternate" href="../fr/" hreflang="fr" title="Passer à la version française de ce générateur"><abbr lang="fr" title="Français">Version française</abbr></a></li>
 		</ul>
 	</nav>
 	
