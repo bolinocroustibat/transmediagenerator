@@ -78,8 +78,8 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 		}
 	</style>
 	
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="//code.jquery.com/jquery-3.3.1.min.js" defer></script>
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 	
 	<script>
 		function generate_data() { // si le bouton de génération a été cliqué
