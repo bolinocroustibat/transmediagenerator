@@ -10,15 +10,14 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 	<meta name="Description" content="No chance that your project will be refused, thanks to the Amazing VR Project Generator!" />
-	<meta name="Generator" content="Notepad++" />
 	<meta name="Keywords" content="virtual reality, vr, generator, transmedia" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<meta property="og:title" content="The Amazing VR Project Generator | All created projects" />
 	<meta property="og:image" content="../style/transmedia_FB_1200x1200.jpg" />
-	<meta property="og:url" content="http://www.transmediagenerator.com/fr/liste.html" />
+	<meta property="og:url" content="https://www.transmediagenerator.com/fr/liste.html" />
 	<meta property="og:site_name" content="The Amazing VR Project Generator" />
 	<meta property="og:description" content="No chance that your project will be refused, thanks to the Amazing VR Project Generator!" />
-	<link rel="alternate" hreflang="fr" href="http://www.transmediagenerator.com/fr/liste.html" />
+	<link rel="alternate" hreflang="fr" href="https://www.transmediagenerator.com/fr/liste.html" />
 	<link rel="apple-touch-icon" sizes="57x57" href="../style/favicons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../style/favicons/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../style/favicons/apple-icon-72x72.png">

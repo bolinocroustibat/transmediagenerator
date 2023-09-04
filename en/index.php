@@ -25,17 +25,16 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 	<meta name="Description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'No chance that your project will be refused, thanks to the Amazing VR Project Generator!';} ?>" />
-	<meta name="Generator" content="Notepad++" />
 	<meta name="Keywords" content="vr, transmedia, generator" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<meta property="og:locale" content="en_EN">
 	<meta property="og:site_name" content="The Amazing VR Project Generator" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="http://www.transmediagenerator.com/en/<?php if(isset($hash) && $hash!=''){echo $hash.'.html';}?>" />
+	<meta property="og:url" content="https://www.transmediagenerator.com/en/<?php if(isset($hash) && $hash!=''){echo $hash.'.html';}?>" />
 	<meta property="og:title" content="<?php if(isset($sentence) && $sentence!=''){echo 'I\'ve just generated my VR project:';}else{echo 'The Amazing VR Project Generator';} ?>" />
 	<meta property="og:description" content="<?php if(isset($sentence) && $sentence!=''){echo $sentence;}else{echo 'No chance that your project will be refused, thanks to the Amazing VR Project Generator!';} ?>" />
 	<meta property="og:image" content="../style/transmedia_FB_1200x1200.jpg" />
-	<link rel="alternate" hreflang="fr" href="http://www.transmediagenerator.com/fr/" />
+	<link rel="alternate" hreflang="fr" href="https://www.transmediagenerator.com/fr/" />
 	<link rel="apple-touch-icon" sizes="57x57" href="../style/favicons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../style/favicons/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../style/favicons/apple-icon-72x72.png">
@@ -96,8 +95,8 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 						$(".project").html(sentence);
 						history.pushState(sentence, sentence, hash+'.html'); // change l'URL dynamiquement
 						if ((typeof sentence !== 'undefined') && (typeof hash !== 'undefined')) { // si les variables existent
-							document.getElementById('ShareTwitter').href = 'http://twitter.com/?status='+sentence+' via @TransmediaGen'; // met à jour le lien de partage Twitter
-							document.getElementById('ShareFacebook').href = 'http://www.facebook.com/sharer/sharer.php?u=http://www.transmediagenerator.com/en/'+hash+'.html'; // met à jour le lien de partage Facebook		
+							document.getElementById('ShareTwitter').href = 'https://twitter.com/?status='+sentence+' via @TransmediaGen'; // met à jour le lien de partage Twitter
+							document.getElementById('ShareFacebook').href = 'https://www.facebook.com/sharer/sharer.php?u=https://www.transmediagenerator.com/en/'+hash+'.html'; // met à jour le lien de partage Facebook		
 						}
 					}
 				})
@@ -147,8 +146,8 @@ if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	
 		<div id="share-wrapper" style="visibility:hidden;">
 			Share this VR project 
-			<a href="http://www.facebook.com/sharer/sharer.php<?php if(isset($hash) && $hash!=''){echo '?u=http://www.transmediagenerator.com/en/'.$hash.'.html';}?>" id="ShareFacebook">on Facebook</a> - 
-			<a href="http://twitter.com/?status=<?php if(isset($sentence) && $sentence!=''){echo $sentence.' via @TransmediaGen';}?>" id="ShareTwitter">on Twitter</a>
+			<a href="https://www.facebook.com/sharer/sharer.php<?php if(isset($hash) && $hash!=''){echo '?u=https://www.transmediagenerator.com/en/'.$hash.'.html';}?>" id="ShareFacebook">on Facebook</a> - 
+			<a href="https://twitter.com/?status=<?php if(isset($sentence) && $sentence!=''){echo $sentence.' via @TransmediaGen';}?>" id="ShareTwitter">on Twitter</a>
 		</div>
 	</div>
 
