@@ -135,15 +135,8 @@
 		'sentence' => $sentence
 	));
 
-	$inp = file_get_contents(dirname( __FILE__ ) .'/generated_projects_EN.json'); // recupere le fichier JSON
-	$tempArray = json_decode($inp);
-	array_push($tempArray, $data);
-	$jsonData = json_encode($tempArray);
-	if(isset($jsonData) && $jsonData!=''){
-		file_put_contents(dirname( __FILE__ ) .'/generated_projects_EN.json', $jsonData, LOCK_EX); // pousse le JSON de ce projet dans le fichier JSON
-	}
-	
-	// file_put_contents('generated_projects_EN.json',$data,FILE_APPEND | LOCK_EX); // FILE_APPEND pour ajouter à la suite sans écraser ce qu'il y avait avant
+	require_once dirname(__DIR__).'/db.php';
+	projects_add('en', $hash, $sentence);
 	
 	echo $data; // affichage de l'objet JSON pour récupération en AJAX
 

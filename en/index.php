@@ -5,14 +5,8 @@
 // RECUPERATION DE LA PHRASE EN CAS DE CHARGEMENT DE LA PAGE AVEC HASH
 if(isset($_GET['hash']) && $_GET['hash']!='') { // Si on recoit un hash
 	$hash = $_GET['hash'];
-	$generated_projects_json = file_get_contents("generated_projects_EN.json"); //charge le fichier qui contient l'objet JSON
-	$generated_projects_table = json_decode($generated_projects_json,true); // transforme l'objet JSON en tableau PHP
-	foreach ($generated_projects_table as $row_obj) { // parcourt chaque ligne du tableau PHP
-		$row = json_decode($row_obj,true); // tranforme l'objet-ligne en tableau
-		if ($hash == $row["hash"]){
-			$sentence = $row["sentence"];
-		}
-	}
+	require_once dirname(__DIR__).'/db.php';
+	$sentence = projects_find('en', $hash);
 }
 ?>
 

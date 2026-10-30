@@ -23,4 +23,4 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Copy repository to server with rsync
-        run: rsync -avz --exclude '.git' --chown=github:www-data --chmod=Dg=rwx,Fg=rwx ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/www/transmediagenerator.com/ # We set directory (D) and files (F) permission for group www-data to rwx so that the same users can overwrite later
+        run: rsync -avz --exclude '.git' --exclude 'data/*.sqlite*' --exclude 'generated_projects_*.json' --exclude 'csv_cache*.txt' --chown=github:www-data --chmod=Dg=rwx,Fg=rwx ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/www/transmediagenerator.com/ # We set directory (D) and files (F) permission for group www-data to rwx so that the same users can overwrite later
