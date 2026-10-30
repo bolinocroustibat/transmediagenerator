@@ -4,3 +4,4 @@ stats/
 data/*.sqlite*
 fr/generated_projects_FR.json
 en/generated_projects_EN.json
+.env
