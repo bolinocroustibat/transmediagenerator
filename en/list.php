@@ -64,7 +64,7 @@
 	
 </head>
 
-<body style="background-image:url('../style/background_EN-1920x1080-opacite_vert.jpg');">
+<body>
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
